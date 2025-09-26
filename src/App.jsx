@@ -68,7 +68,7 @@ function App() {
         // ref={HTMLFlipBookRef}
       >
         <Document
-          file={PdfFile}
+          file={"/PORTFOLIO22-25.pdf"}
           onLoadError={console.error}
           onLoadSuccess={({ numPages }) => setNumPages(numPages)}
           onLoadedData={console.log("loaded data")}
