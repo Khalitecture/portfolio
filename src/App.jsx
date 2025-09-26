@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Document, Page, pdfjs } from "react-pdf";
 import PdfFile from "./PORTFOLIO22-25.pdf";
@@ -10,6 +9,8 @@ import "react-pdf/dist/Page/TextLayer.css";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import Squares from "./components/bg_Squares/Squares";
 import PixelCard from "./components/PixelCard/PixelCard";
+import ItemQubesLoader from "./components/ItemQubesLoader/ItemQubesLoader";
+// import { SunspotLoader } from "react-awesome-loaders";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
 
@@ -40,9 +41,9 @@ function App() {
           hoverFillColor="#fff"
         />
         <div className="py-16 px-8 z-10 absolute top-0 left-0 w-full h-full">
-          <div className="h-32 w-2x96 text-2xl whitespace-pre-wrap bold">
+          <div className="h-32 w-2x96 text-2xl whitespace-pre-wrap font-semibold">
             <TextType
-              text={["Ludovica Baiardi \nArchitect \nPortfolio 2022-2025"]}
+              text={["Ludovica Baiardi \nARCHITECT \nPORTFOLIO 2022-2025"]}
               pauseDuration={3000}
               cursorCharacter="|"
             />
@@ -63,14 +64,21 @@ function App() {
         </div>
       </header>
       <div
-        className={`App-body flex justify-center items-center overflow-y-hidden py-64`}
+        className={`App-body flex justify-center items-center overflow-y-hidden py-64 flex-col`}
         // ref={HTMLFlipBookRef}
       >
         <Document
           file={PdfFile}
           onLoadError={console.error}
           onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+          onLoadedData={console.log("loaded data")}
+          className={"transparent relative"}
         >
+          {numPages && (
+            // <div className="relative">
+            <ItemQubesLoader />
+            // </div>
+          )}
           <span id="flipbook" ref={HTMLFlipBookRef}></span>
           <HTMLFlipBook
             width={bookWidth}
