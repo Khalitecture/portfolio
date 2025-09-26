@@ -3,9 +3,9 @@ import { useRef, useEffect } from "react";
 const Squares = ({
   direction = "right",
   speed = 1,
-  borderColor = "#999",
+  borderColor = "#fff",
   squareSize = 40,
-  hoverFillColor = "#222",
+  hoverFillColor = "#000",
 }) => {
   const canvasRef = useRef(null);
   const requestRef = useRef(null);
@@ -63,7 +63,7 @@ const Squares = ({
         0,
         canvas.width / 2,
         canvas.height / 2,
-        Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
+        Math.sqrt(canvas.width ** 2 + canvas.height ** 2)
       );
       gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
       gradient.addColorStop(1, "#000");

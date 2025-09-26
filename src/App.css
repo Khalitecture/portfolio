@@ -6,6 +6,12 @@
   text-align: center;
 }
 
+*,
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -22,7 +28,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #000; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,6 +37,23 @@
   /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+  /* vertical gradient, from the top, the first 80% will be completely transparent, opacity 0, then in the last 20% it will turn full black */
+  background: rgba(0, 0, 0, 1);
+}
+
+.App-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  pointer-events: none;
 }
 
 .App-link {

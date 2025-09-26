@@ -124,6 +124,13 @@ const VARIANTS = {
     colors: "#fecdd3,#fda4af,#e11d48",
     noFocus: true,
   },
+  black: {
+    activeColor: "#ffffff",
+    gap: 4,
+    speed: 80,
+    colors: "#000,#222,#444,#666,#888",
+    noFocus: false,
+  },
 };
 
 export default function PixelCard({
